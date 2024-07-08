@@ -172,6 +172,7 @@ void mainQT::play_mp3(){
     }
     dic = new dic_exec();
     std::vector<unsigned char> mp3 = dic->mp3_load(cname);
+    delete dic;
     if (mp3.size() < 4){
         return;
     }
@@ -476,6 +477,9 @@ void mainQT::Pi(){
     QtCharts::QPieSlice *s6 = hinsipi->append(QString::fromStdString(f), count[6]);
     s6->setBrush(Qt::gray);
     s6->setLabelVisible(false);
+    if (pi != nullptr) {
+        delete pi;
+    }
     pi = new QtCharts::QChart();
     pi->addSeries(hinsipi);
     if (count[0]>0){
