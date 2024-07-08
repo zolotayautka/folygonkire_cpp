@@ -477,10 +477,9 @@ void mainQT::Pi(){
     QtCharts::QPieSlice *s6 = hinsipi->append(QString::fromStdString(f), count[6]);
     s6->setBrush(Qt::gray);
     s6->setLabelVisible(false);
-    if (pi != nullptr) {
-        delete pi;
+    if (pi == nullptr) {
+        pi = new QtCharts::QChart();
     }
-    pi = new QtCharts::QChart();
     pi->addSeries(hinsipi);
     if (count[0]>0){
         s1->setLabelFont(QFont("Noto Sans CJK JP", 7));
