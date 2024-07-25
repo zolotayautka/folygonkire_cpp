@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>imgs/icon.png</file>
         <file>imgs/search.png</file>
-        <file>imgs/reset.png</file>
         <file>imgs/mp3.png</file>
         <file>imgs/del.png</file>
         <file>imgs/bookmarkadd.png</file>
