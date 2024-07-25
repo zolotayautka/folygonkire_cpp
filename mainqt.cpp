@@ -11,7 +11,7 @@ mainQT::mainQT(QWidget *parent)
     , ui(new Ui::mainQT)
 {
     ui->setupUi(this);
-    setFixedSize(QSize(1063, 493));
+    setFixedSize(QSize(821, 561));
     if (!(fileExists("dic.db"))){
         create_dic();
     }
@@ -20,16 +20,19 @@ mainQT::mainQT(QWidget *parent)
     connect(ui->sagasu_list, &QListWidget::currentItemChanged, this, &mainQT::imi_out);
     connect(ui->mp3_btn, &QPushButton::clicked, this, &mainQT::play_mp3);
     connect(ui->add_kotoba_btn, &QPushButton::clicked, this, &mainQT::_add);
+    connect(ui->modify_kotoba_btn, &QPushButton::clicked, this, &mainQT::_modify);
     connect(ui->del_kotoba_btn, &QPushButton::clicked, this, &mainQT::_del);
     connect(ui->bookmark_list, &QListWidget::clicked, this, &mainQT::book_view);
     connect(ui->bookmark_list, &QListWidget::currentItemChanged, this, &mainQT::book_view);
     connect(ui->add_book_btn, &QPushButton::clicked, this, &mainQT::add_book);
     connect(ui->del_book_btn, &QPushButton::clicked, this, &mainQT::del_book);
     connect(ui->history_reset_btn, &QPushButton::clicked, this, &mainQT::reset_history);
+    connect(ui->tab, &QTabWidget::currentChanged, this, &mainQT::hensyuu_flag_henkou);
     count_view();
     load_book();
     load_history();
     Pi();
+    sagasu();
 }
 
 mainQT::~mainQT()
@@ -214,16 +217,53 @@ void mainQT::play_mp3(){
 }
 
 void mainQT::_add(){
-    add_ui = new add_kotoba;
+    bool k = false;
+    add_ui = new add_kotoba(&k);
     add_ui->exec();
     delete add_ui;
-    count_view();
-    Pi();
+    if (k){
+        count_view();
+        Pi();
+        sagasu();
+    }
+}
+
+void mainQT::_modify(){
+    int n = ui->sagasu_list->currentRow();
+    if (n<0){
+        return;
+    }
+    if (!hensyuu_flag){
+        return;
+    }
+    tuple b;
+    bool k = false;
+    modify_ui = new modify_kotoba(list[n], &b, &k);
+    modify_ui->exec();
+    delete modify_ui;
+    if (k){
+        ui->sagasu_list->clear();
+        ui->naiyou->setText("");
+        cname = "";
+        sagasu();
+        book = new bookmark();
+        if (book->kaburu_check(b.kotoba)){
+            book->del_bookmark(b.kotoba);
+            book->add_bookmark(b);
+            delete book;
+            load_book();
+        } else {
+            delete book;
+        }
+    }
 }
 
 void mainQT::_del(){
     int n = ui->sagasu_list->currentRow();
     if (n<0){
+        return;
+    }
+    if (!hensyuu_flag){
         return;
     }
     #ifdef ja
@@ -249,10 +289,15 @@ void mainQT::_del(){
     ui->naiyou->setText("");
     cname = "";
     book = new bookmark();
-    book->del_bookmark(list[n].kotoba);
-    delete book;
-    load_book();
+    if (book->kaburu_check(list[n].kotoba)){
+        book->del_bookmark(list[n].kotoba);
+        delete book;
+        load_book();
+    } else {
+        delete book;
+    }
     Pi();
+    sagasu();
 }
 
 void mainQT::load_book(){
@@ -508,6 +553,22 @@ void mainQT::Pi(){
         ui->layer->addWidget(pi_view);
     } else {
         pi_view->setChart(pi);
+    }
+}
+
+void mainQT::hensyuu_flag_henkou(){
+    int t = ui->tab->currentIndex();
+    if (t == 0){
+        ui->naiyou->setText("");
+        imi_out();
+        hensyuu_flag = true;
+    } else if (t == 1) {
+        ui->naiyou->setText("");
+        book_view();
+        hensyuu_flag = false;
+    } else {
+        ui->naiyou->setText("");
+        hensyuu_flag = false;
     }
 }
 

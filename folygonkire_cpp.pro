@@ -13,17 +13,20 @@ SOURCES += \
     folygonkire.cpp \
     main.cpp \
     mainqt.cpp \
+    modify_kotoba.cpp \
     sqlite3.c
 
 HEADERS += \
     add_kotoba.h \
     folygonkire.h \
     mainqt.h \
+    modify_kotoba.h \
     sqlite3.h
 
 FORMS += \
     add_kotoba.ui \
-    mainqt.ui
+    mainqt.ui \
+    modify_kotoba.ui
 
 LIBS += -lSDL2 -lSDL2_mixer
 

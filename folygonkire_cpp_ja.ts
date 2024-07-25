@@ -78,24 +78,72 @@
         <translation>ポリゴンの切れ</translation>
     </message>
     <message>
-        <location filename="mainqt.ui" line="236"/>
+        <location filename="mainqt.ui" line="56"/>
+        <source>検索</source>
+        <translation>検索</translation>
+    </message>
+    <message>
+        <location filename="mainqt.ui" line="111"/>
         <source>ブックマーク</source>
         <translation>ブックマーク</translation>
     </message>
     <message>
-        <location filename="mainqt.ui" line="286"/>
+        <location filename="mainqt.ui" line="200"/>
         <source>検索記録</source>
         <translation>検索記録</translation>
     </message>
     <message>
-        <location filename="mainqt.ui" line="326"/>
+        <location filename="mainqt.ui" line="161"/>
         <source>統計</source>
         <translation>統計</translation>
     </message>
     <message>
-        <location filename="mainqt.ui" line="338"/>
+        <location filename="mainqt.ui" line="173"/>
         <source>登録された見出し語の数</source>
         <translation>登録された見出し語の数</translation>
+    </message>
+</context>
+<context>
+    <name>modify_kotoba</name>
+    <message>
+        <location filename="modify_kotoba.ui" line="14"/>
+        <source>見出し語修正</source>
+        <translation>見出し語修正</translation>
+    </message>
+    <message>
+        <location filename="modify_kotoba.ui" line="26"/>
+        <source>修正</source>
+        <translation>修正</translation>
+    </message>
+    <message>
+        <location filename="modify_kotoba.ui" line="39"/>
+        <source>内容 :</source>
+        <translation>内容 :</translation>
+    </message>
+    <message>
+        <location filename="modify_kotoba.ui" line="75"/>
+        <source>備考 :</source>
+        <translation>備考 :</translation>
+    </message>
+    <message>
+        <location filename="modify_kotoba.ui" line="88"/>
+        <source>音声ファイル :</source>
+        <translation>音声ファイル :</translation>
+    </message>
+    <message>
+        <location filename="modify_kotoba.ui" line="101"/>
+        <source>音声添付</source>
+        <translation>音声添付</translation>
+    </message>
+    <message>
+        <location filename="modify_kotoba.ui" line="114"/>
+        <source>漢字</source>
+        <translation>漢字</translation>
+    </message>
+    <message>
+        <location filename="modify_kotoba.ui" line="181"/>
+        <source>ファイル削除</source>
+        <translation>ファイル削除</translation>
     </message>
 </context>
 </TS>

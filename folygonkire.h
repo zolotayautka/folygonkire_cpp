@@ -53,6 +53,8 @@ class dic_exec{
     std::vector<unsigned char> mp3_load(std::string kotoba);
     bool add_kotoba(tuple add_dic, std::vector<unsigned char> mp3);
     bool add_kotoba(tuple add_dic);
+    void modify_kotoba(tuple t, std::vector<unsigned char> mp3);
+    void modify_kotoba(tuple t, bool flag);
     void del_kotoba(std::string kotoba);
 };
 
@@ -79,7 +81,6 @@ class bookmark {
         *count = std::stoi(argv[0]);
         return 0;
     }
-    bool kaburu_check(std::string kotoba);
     public:
     bookmark(){
         sqlite3_open("dic.db", &db);
@@ -91,6 +92,7 @@ class bookmark {
     int bookmark_count();
     int add_bookmark(tuple midasigo);
     void del_bookmark(std::string kotoba);
+    bool kaburu_check(std::string kotoba);
 };
 
 void create_dic();

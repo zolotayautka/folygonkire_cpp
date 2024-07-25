@@ -1,12 +1,13 @@
 #include "add_kotoba.h"
 #include "ui_add_kotoba.h"
 
-add_kotoba::add_kotoba(QWidget *parent) :
+add_kotoba::add_kotoba(bool* k, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::add_kotoba)
 {
     ui->setupUi(this);
     setFixedSize(QSize(543, 363));
+    this->k = k;
     connect(ui->add_btn, &QPushButton::clicked, this, &add_kotoba::_add);
     connect(ui->file_btn, &QPushButton::clicked, this, &add_kotoba::file_select);
 }
@@ -49,6 +50,8 @@ void add_kotoba::_add(){
         #ifdef ko
         QMessageBox::warning(nullptr, "알림", "이미 존재하는 단어입니다.");
         #endif
+    } else {
+        *k = true;
     }
     delete dic;
     file_name = "";

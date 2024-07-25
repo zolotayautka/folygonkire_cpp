@@ -15,7 +15,7 @@ class add_kotoba : public QDialog
     Q_OBJECT
 
 public:
-    explicit add_kotoba(QWidget *parent = nullptr);
+    explicit add_kotoba(bool* k, QWidget *parent = nullptr);
     ~add_kotoba();
 
 private:
@@ -23,11 +23,12 @@ private:
     dic_exec* dic;
     std::vector<unsigned char> mp3;
     QString file_name;
+    bool* k;
+    bool file(QString file_name);
 
 private slots:
     void _add();
     void file_select();
-    bool file(QString file_name);
 };
 
 #endif // ADD_KOTOBA_H

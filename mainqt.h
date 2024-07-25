@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "folygonkire.h"
 #include "add_kotoba.h"
+#include "modify_kotoba.h"
 #include <QtCharts/QChartView>
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QChart>
@@ -31,6 +32,7 @@ private:
     history* rireki;
     bookmark* book;
     add_kotoba* add_ui;
+    modify_kotoba* modify_ui;
     int count[7];
     std::vector<tuple> list;
     int book_count;
@@ -44,10 +46,12 @@ private:
     QtCharts::QChart *pi = nullptr;
     QtCharts::QChartView *pi_view = nullptr;
     void Pi();
+    bool hensyuu_flag = true;
 
 private slots:
     void sagasu();
     void _add();
+    void _modify();
     void _del();
     void imi_out();
     void book_view();
@@ -55,6 +59,7 @@ private slots:
     void add_book();
     void del_book();
     void play_mp3();
+    void hensyuu_flag_henkou();
 };
 
 #endif // MAINQT_H
