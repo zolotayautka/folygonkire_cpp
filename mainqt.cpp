@@ -27,7 +27,7 @@ mainQT::mainQT(QWidget *parent)
     connect(ui->add_book_btn, &QPushButton::clicked, this, &mainQT::add_book);
     connect(ui->del_book_btn, &QPushButton::clicked, this, &mainQT::del_book);
     connect(ui->history_reset_btn, &QPushButton::clicked, this, &mainQT::reset_history);
-    connect(ui->tab, &QTabWidget::currentChanged, this, &mainQT::hensyuu_flag_henkou);
+    connect(ui->tab, &QTabWidget::currentChanged, this, &mainQT::tab_henkou);
     count_view();
     load_book();
     load_history();
@@ -233,9 +233,6 @@ void mainQT::_modify(){
     if (n<0){
         return;
     }
-    if (!hensyuu_flag){
-        return;
-    }
     tuple b;
     bool k = false;
     modify_ui = new modify_kotoba(list[n], &b, &k);
@@ -261,9 +258,6 @@ void mainQT::_modify(){
 void mainQT::_del(){
     int n = ui->sagasu_list->currentRow();
     if (n<0){
-        return;
-    }
-    if (!hensyuu_flag){
         return;
     }
     #ifdef ja
@@ -556,19 +550,31 @@ void mainQT::Pi(){
     }
 }
 
-void mainQT::hensyuu_flag_henkou(){
+void mainQT::tab_henkou(){
     int t = ui->tab->currentIndex();
     if (t == 0){
         ui->naiyou->setText("");
         imi_out();
-        hensyuu_flag = true;
+        ui->mp3_btn->setEnabled(true);
+        ui->add_book_btn->setEnabled(true);
+        ui->add_kotoba_btn->setEnabled(true);
+        ui->modify_kotoba_btn->setEnabled(true);
+        ui->del_kotoba_btn->setEnabled(true);
     } else if (t == 1) {
         ui->naiyou->setText("");
         book_view();
-        hensyuu_flag = false;
+        ui->mp3_btn->setEnabled(true);
+        ui->add_book_btn->setEnabled(false);
+        ui->add_kotoba_btn->setEnabled(false);
+        ui->modify_kotoba_btn->setEnabled(false);
+        ui->del_kotoba_btn->setEnabled(false);
     } else {
         ui->naiyou->setText("");
-        hensyuu_flag = false;
+        ui->mp3_btn->setEnabled(false);
+        ui->add_book_btn->setEnabled(false);
+        ui->add_kotoba_btn->setEnabled(false);
+        ui->modify_kotoba_btn->setEnabled(false);
+        ui->del_kotoba_btn->setEnabled(false);
     }
 }
 

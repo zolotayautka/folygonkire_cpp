@@ -46,7 +46,6 @@ private:
     QtCharts::QChart *pi = nullptr;
     QtCharts::QChartView *pi_view = nullptr;
     void Pi();
-    bool hensyuu_flag = true;
 
 private slots:
     void sagasu();
@@ -59,7 +58,7 @@ private slots:
     void add_book();
     void del_book();
     void play_mp3();
-    void hensyuu_flag_henkou();
+    void tab_henkou();
 };
 
 #endif // MAINQT_H

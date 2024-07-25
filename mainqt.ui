@@ -86,6 +86,12 @@
            <iconset resource="resource.qrc">
             <normaloff>:/imgs/search.png</normaloff>:/imgs/search.png</iconset>
           </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
          </widget>
          <widget class="QListWidget" name="sagasu_list">
           <property name="geometry">
@@ -134,7 +140,13 @@
           </property>
           <property name="icon">
            <iconset resource="resource.qrc">
-            <normaloff>:/imgs/del.png</normaloff>:/imgs/del.png</iconset>
+            <normaloff>:/imgs/del_book.png</normaloff>:/imgs/del_book.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
           </property>
          </widget>
          <widget class="QListWidget" name="bookmark_list">
@@ -215,6 +227,12 @@
            <iconset resource="resource.qrc">
             <normaloff>:/imgs/reset.png</normaloff>:/imgs/reset.png</iconset>
           </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
          </widget>
          <widget class="QTextBrowser" name="history_view">
           <property name="geometry">
@@ -292,6 +310,12 @@
          <iconset resource="resource.qrc">
           <normaloff>:/imgs/mp3.png</normaloff>:/imgs/mp3.png</iconset>
         </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
        </widget>
        <widget class="QPushButton" name="add_book_btn">
         <property name="geometry">
@@ -308,6 +332,12 @@
         <property name="icon">
          <iconset resource="resource.qrc">
           <normaloff>:/imgs/bookmarkadd.png</normaloff>:/imgs/bookmarkadd.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>26</width>
+          <height>26</height>
+         </size>
         </property>
        </widget>
        <widget class="QPushButton" name="add_kotoba_btn">
@@ -326,6 +356,12 @@
          <iconset resource="resource.qrc">
           <normaloff>:/imgs/add.png</normaloff>:/imgs/add.png</iconset>
         </property>
+        <property name="iconSize">
+         <size>
+          <width>36</width>
+          <height>36</height>
+         </size>
+        </property>
        </widget>
        <widget class="QPushButton" name="del_kotoba_btn">
         <property name="geometry">
@@ -343,6 +379,12 @@
          <iconset resource="resource.qrc">
           <normaloff>:/imgs/del.png</normaloff>:/imgs/del.png</iconset>
         </property>
+        <property name="iconSize">
+         <size>
+          <width>26</width>
+          <height>26</height>
+         </size>
+        </property>
        </widget>
        <widget class="QPushButton" name="modify_kotoba_btn">
         <property name="geometry">
@@ -355,6 +397,16 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resource.qrc">
+          <normaloff>:/imgs/modify.png</normaloff>:/imgs/modify.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
         </property>
        </widget>
       </widget>
