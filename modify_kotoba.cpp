@@ -141,7 +141,12 @@ bool modify_kotoba::file(QString file_name){
 void modify_kotoba::del_f_edit(){
     if (ui->del_file->isChecked()){
         del_f = true;
+        ui->mp3_path->setText("");
+        ui->mp3_path->setEnabled(false);
+        ui->file_btn->setEnabled(false);
     } else {
         del_f = false;
+        ui->mp3_path->setEnabled(true);
+        ui->file_btn->setEnabled(true);
     }
 }
