@@ -272,26 +272,25 @@ void mainQT::_del(){
     QMessageBox::StandardButton f = QMessageBox::question(this, "경고", "정말로 삭제 하겠습니까?",
                                       QMessageBox::Yes | QMessageBox::No);
     #endif
-    if (f == QMessageBox::No){
-        return;
+    if (f == QMessageBox::Yes){
+        dic = new dic_exec();
+        dic->del_kotoba(list[n].kotoba);
+        delete dic;
+        count_view();
+        ui->sagasu_list->clear();
+        ui->naiyou->setText("");
+        cname = "";
+        book = new bookmark();
+        if (book->kaburu_check(list[n].kotoba)){
+            book->del_bookmark(list[n].kotoba);
+            delete book;
+            load_book();
+        } else {
+            delete book;
+        }
+        Pi();
+        sagasu();
     }
-    dic = new dic_exec();
-    dic->del_kotoba(list[n].kotoba);
-    delete dic;
-    count_view();
-    ui->sagasu_list->clear();
-    ui->naiyou->setText("");
-    cname = "";
-    book = new bookmark();
-    if (book->kaburu_check(list[n].kotoba)){
-        book->del_bookmark(list[n].kotoba);
-        delete book;
-        load_book();
-    } else {
-        delete book;
-    }
-    Pi();
-    sagasu();
 }
 
 void mainQT::load_book(){
