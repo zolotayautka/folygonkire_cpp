@@ -1,13 +1,13 @@
 # Folygonkire C++
 このアプリはC++で作られた辞書です。  
-  
-![1](https://github.com/user-attachments/assets/7d9ec697-6604-464b-a274-0df88bfa97ff)
-![2](https://github.com/user-attachments/assets/de1d1d82-b30a-447f-ba82-a050a8b82826)
-![3](https://github.com/user-attachments/assets/5feee2cd-d754-4037-a11d-79187e8dadaa)
-![4](https://github.com/user-attachments/assets/3db73fbb-5e5a-4afa-9b6c-ce52d4e2dcce)
-![5](https://github.com/user-attachments/assets/5208c6cc-135c-4ea2-b1ec-310672e94513)
-![6](https://github.com/user-attachments/assets/d5237cbb-137f-4a42-b93b-2a203f424a83)
-![7](https://github.com/user-attachments/assets/249a71a6-0655-443c-a987-17ac11d90c9f)
-![8](https://github.com/user-attachments/assets/a591a15e-86d3-487d-9831-c943a1dcd911)
-![9](https://github.com/user-attachments/assets/f40dd12e-3b8b-45e7-aade-8d2c68b304f7)
-![10](https://github.com/user-attachments/assets/e4d4072a-fe95-4444-a926-9f7a8b664008)
+
+![1](https://github.com/user-attachments/assets/87e1cbf9-9211-4fa5-93d9-f138c9d9e589)
+![2](https://github.com/user-attachments/assets/e5328437-3e21-468c-b138-b625a822c36f)
+![3](https://github.com/user-attachments/assets/6d0795a8-dba7-4ba8-98e0-09d5a79c7b55)
+![4](https://github.com/user-attachments/assets/e88e5cbe-8227-468d-8454-3ad33a4f88de)
+![5](https://github.com/user-attachments/assets/17897a2f-e290-467b-81c0-077e34e36fa6)
+![6](https://github.com/user-attachments/assets/d830ef1e-0ae2-4748-b114-d78015618d7b)
+![7](https://github.com/user-attachments/assets/f44cd2a4-52b5-4a9b-89e1-589cbb3d1edf)
+![8](https://github.com/user-attachments/assets/5f03f479-a568-499e-9e83-23a6ecb5fef1)
+![9](https://github.com/user-attachments/assets/f6f77675-65b3-4058-b66a-67ed6fdad375)
+![10](https://github.com/user-attachments/assets/8dd79f28-0eed-48aa-8cb5-613a5e0c5bb6)
