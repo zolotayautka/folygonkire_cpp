@@ -150,7 +150,7 @@ std::vector<std::string> history::read_history(){
 }
 
 std::vector<tuple> bookmark::bookmark_load(){
-    const char sql[] = "SELECT kotoba, imi, bikou, kanji, tb FROM bookmark;";
+    const char sql[] = "SELECT kotoba, imi, bikou, kanji, hinsi FROM bookmark;";
     sqlite3_exec(db, sql, callback, &bookmark_list, nullptr);
     return bookmark_list;
 }
@@ -165,7 +165,7 @@ int bookmark::add_bookmark(tuple midasigo){
         return 0;
     }
     std::ostringstream sql;
-    sql << "INSERT INTO bookmark VALUES ('" << midasigo.kotoba << "', " << std::to_string(midasigo.hinsi) << ", '" << midasigo.imi << "', '" << midasigo.bikou << "', '" << midasigo.kanji << "');";
+    sql << "INSERT INTO bookmark VALUES ('" << midasigo.kotoba << "', " << midasigo.hinsi << ", '" << midasigo.imi << "', '" << midasigo.bikou << "', '" << midasigo.kanji << "');";
     sqlite3_exec(db, sql.str().c_str(), 0, 0, 0);
     return 1;
 }
@@ -203,7 +203,7 @@ void create_dic(){
             );";
     char sql2[] = "CREATE TABLE bookmark (\
                 kotoba CHAR(20),\
-                tb CHAR(20),\
+                hinsi INT,\
                 imi CHAR(80),\
                 bikou CHAR(50),\
                 kanji CHAR(20),\

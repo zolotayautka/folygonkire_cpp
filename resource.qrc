@@ -9,7 +9,7 @@
         <file>folygonkire_cpp_ko.qm</file>
         <file>folygonkire_cpp_en.qm</file>
         <file>folygonkire_cpp_ja.qm</file>
-        <file>imgs/del_book.png</file>
         <file>imgs/modify.png</file>
+        <file>imgs/reset.png</file>
     </qresource>
 </RCC>

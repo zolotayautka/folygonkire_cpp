@@ -140,12 +140,12 @@
           </property>
           <property name="icon">
            <iconset resource="resource.qrc">
-            <normaloff>:/imgs/del_book.png</normaloff>:/imgs/del_book.png</iconset>
+            <normaloff>:/imgs/del.png</normaloff>:/imgs/del.png</iconset>
           </property>
           <property name="iconSize">
            <size>
-            <width>20</width>
-            <height>20</height>
+            <width>24</width>
+            <height>24</height>
            </size>
           </property>
          </widget>
@@ -225,7 +225,7 @@
           </property>
           <property name="icon">
            <iconset resource="resource.qrc">
-            <normaloff>:/imgs/del.png</normaloff>:/imgs/del.png</iconset>
+            <normaloff>:/imgs/reset.png</normaloff>:/imgs/reset.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -335,8 +335,8 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>26</width>
-          <height>26</height>
+          <width>32</width>
+          <height>32</height>
          </size>
         </property>
        </widget>
@@ -358,8 +358,8 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>36</width>
-          <height>36</height>
+          <width>32</width>
+          <height>32</height>
          </size>
         </property>
        </widget>
@@ -381,8 +381,8 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>26</width>
-          <height>26</height>
+          <width>32</width>
+          <height>32</height>
          </size>
         </property>
        </widget>
@@ -404,8 +404,8 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>24</width>
-          <height>24</height>
+          <width>32</width>
+          <height>32</height>
          </size>
         </property>
        </widget>
