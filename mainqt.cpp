@@ -553,7 +553,6 @@ void mainQT::Pi(){
 void mainQT::tab_henkou(){
     int t = ui->tab->currentIndex();
     if (t == 0){
-        ui->naiyou->setText("");
         imi_out();
         ui->mp3_btn->setEnabled(true);
         ui->add_book_btn->setEnabled(true);
@@ -561,7 +560,6 @@ void mainQT::tab_henkou(){
         ui->modify_kotoba_btn->setEnabled(true);
         ui->del_kotoba_btn->setEnabled(true);
     } else if (t == 1) {
-        ui->naiyou->setText("");
         book_view();
         ui->mp3_btn->setEnabled(true);
         ui->add_book_btn->setEnabled(false);
