@@ -155,11 +155,6 @@ std::vector<tuple> bookmark::bookmark_load(){
     return bookmark_list;
 }
 
-int bookmark::bookmark_count(){
-    int t = bookmark_list.size();
-    return t;
-}
-
 int bookmark::add_bookmark(tuple midasigo){
     if (kaburu_check(midasigo.kotoba)){
         return 0;
