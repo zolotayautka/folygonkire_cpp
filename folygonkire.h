@@ -6,8 +6,6 @@
 #include <sstream>
 #include <set>
 #include <tuple>
-#include <string.h>
-#include <cstring>
 #include <fstream>
 #include <iomanip>
 #include "sqlite3.h"
