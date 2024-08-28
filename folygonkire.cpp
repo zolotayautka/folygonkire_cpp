@@ -73,7 +73,7 @@ bool dic_exec::add_kotoba(tuple add_dic){
 
 void dic_exec::modify_kotoba(tuple t, std::vector<unsigned char> mp3){
     std::ostringstream sql;
-    sql << "UPDATE dic SET imi = '" << t.imi << "', bikou = '" << t.bikou << "', kanji = '" << t.kanji << "', hinsi = '" << t.hinsi << "', hatsuon = X'";
+    sql << "UPDATE dic SET imi = '" << t.imi << "', bikou = '" << t.bikou << "', kanji = '" << t.kanji << "', hatsuon = X'";
     int l = mp3.size();
     for (int i = 0; i < l; ++i) {
         sql << std::hex << std::setw(2) << std::setfill('0') << static_cast<unsigned>(mp3[i]);
@@ -87,9 +87,9 @@ void dic_exec::modify_kotoba(tuple t, std::vector<unsigned char> mp3){
 void dic_exec::modify_kotoba(tuple t, bool flag){
     std::ostringstream sql;
     if (flag){
-        sql << "UPDATE dic SET imi = '" << t.imi << "', bikou = '" << t.bikou << "', kanji = '" << t.kanji << "', hinsi = '" << t.hinsi << "', hatsuon = " << NULL << " WHERE kotoba='" << t.kotoba << "';";
+        sql << "UPDATE dic SET imi = '" << t.imi << "', bikou = '" << t.bikou << "', kanji = '" << t.kanji << "', hatsuon = " << NULL << " WHERE kotoba='" << t.kotoba << "';";
     } else {
-        sql << "UPDATE dic SET imi = '" << t.imi << "', bikou = '" << t.bikou << "', kanji = '" << t.kanji << "', hinsi = '" << t.hinsi << "' WHERE kotoba='" << t.kotoba << "';";
+        sql << "UPDATE dic SET imi = '" << t.imi << "', bikou = '" << t.bikou << "', kanji = '" << t.kanji << "' WHERE kotoba='" << t.kotoba << "';";
     }
     sqlite3_exec(db, sql.str().c_str(), 0, 0, 0);
     const char sql_[] = "VACUUM;";
