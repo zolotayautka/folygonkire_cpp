@@ -89,7 +89,6 @@ class bookmark {
         sqlite3_close(db);
     }
     std::vector<tuple> bookmark_load();
-    int bookmark_count();
     int add_bookmark(tuple midasigo);
     void del_bookmark(std::string kotoba);
     bool kaburu_check(std::string kotoba);
