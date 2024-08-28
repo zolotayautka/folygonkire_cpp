@@ -155,14 +155,14 @@ std::vector<tuple> bookmark::bookmark_load(){
     return bookmark_list;
 }
 
-int bookmark::add_bookmark(tuple midasigo){
+bool bookmark::add_bookmark(tuple midasigo){
     if (kaburu_check(midasigo.kotoba)){
-        return 0;
+        return true;
     }
     std::ostringstream sql;
     sql << "INSERT INTO bookmark VALUES ('" << midasigo.kotoba << "', " << midasigo.hinsi << ", '" << midasigo.imi << "', '" << midasigo.bikou << "', '" << midasigo.kanji << "');";
     sqlite3_exec(db, sql.str().c_str(), 0, 0, 0);
-    return 1;
+    return false;
 }
 
 void bookmark::del_bookmark(std::string kotoba){
