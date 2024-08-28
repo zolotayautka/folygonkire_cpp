@@ -418,10 +418,10 @@ void mainQT::add_book(){
     new_book.bikou = list[n].bikou;
     new_book.kanji = list[n].kanji;
     book = new bookmark();
-    int f = book->add_bookmark(new_book);
+    bool f = book->add_bookmark(new_book);
     delete book;
     load_book();
-    if (f == 0){
+    if (f){
         #ifdef ja
         QMessageBox::warning(nullptr, "お知らせ", "すでに存在することばです。");
         #endif
