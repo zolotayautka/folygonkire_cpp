@@ -299,8 +299,9 @@ void mainQT::load_book(){
     book = new bookmark();
     book_list = book->bookmark_load();
     delete book;
-    ui->bookmark_count_lcd->display(book_count.size());
-    for(int i = 0; i < book_count; i++){
+    int count = book_list.size();
+    ui->bookmark_count_lcd->display(count);
+    for(int i = 0; i < count; i++){
         if (!(book_list[i].kanji.compare(book_list[i].kotoba))){
             QString kanji = QString::fromStdString(book_list[i].kanji);
             ui->bookmark_list->addItem(kanji);
