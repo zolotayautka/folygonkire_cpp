@@ -35,7 +35,6 @@ private:
     modify_kotoba* modify_ui;
     int count[7];
     std::vector<tuple> list;
-    int book_count;
     std::string cname = "";
     std::vector<tuple> book_list;
     std::vector<std::string> rireki_list;
