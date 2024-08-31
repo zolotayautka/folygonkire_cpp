@@ -85,6 +85,7 @@ modify_kotoba::modify_kotoba(tuple t, tuple* b, bool* k, QWidget *parent)
     if(dic->mp3_load(t.kotoba).size() < 5){
         ui->del_file->setEnabled(false);
     }
+    delete dic;
     this->t.kotoba = t.kotoba;
     this->t.hinsi = t.hinsi;
     this->b = b;
@@ -96,8 +97,6 @@ modify_kotoba::modify_kotoba(tuple t, tuple* b, bool* k, QWidget *parent)
 
 modify_kotoba::~modify_kotoba()
 {
-    if (dic != nullptr)
-        delete dic;
     delete ui;
 }
 
@@ -112,7 +111,6 @@ void modify_kotoba::_modify(){
         dic->modify_kotoba(t, mp3);
     }
     delete dic;
-    dic = nullptr;
     *b = t;
     *k = true;
 }
