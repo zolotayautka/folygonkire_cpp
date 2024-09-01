@@ -14,7 +14,7 @@ class modify_kotoba : public QDialog
     Q_OBJECT
 
 public:
-    explicit modify_kotoba(tuple t, tuple* b, bool* k, QWidget *parent = nullptr);
+    explicit modify_kotoba(tuple* t, bool* k, QWidget *parent = nullptr);
     ~modify_kotoba();
 
 private:
@@ -22,8 +22,7 @@ private:
     dic_exec* dic;
     std::vector<unsigned char> mp3;
     QString file_name;
-    tuple t;
-    tuple* b;
+    tuple* t;
     bool* k;
     bool del_f = false;
     bool file(QString file_name);

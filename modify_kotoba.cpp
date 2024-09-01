@@ -1,15 +1,16 @@
 #include "modify_kotoba.h"
 #include "ui_modify_kotoba.h"
 
-modify_kotoba::modify_kotoba(tuple t, tuple* b, bool* k, QWidget *parent)
+modify_kotoba::modify_kotoba(tuple* t, bool* k, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::modify_kotoba)
 {
     ui->setupUi(this);
     setFixedSize(QSize(543, 373));
-    ui->kotoba_line->setText(QString::fromStdString(t.kotoba));
+    this->t = t;
+    ui->kotoba_line->setText(QString::fromStdString(t->kotoba));
     QString hinsi;
-    switch(t.hinsi){
+    switch(t->hinsi){
     case 0:
         #ifdef ja
         hinsi = "[助詞]";
@@ -78,17 +79,14 @@ modify_kotoba::modify_kotoba(tuple t, tuple* b, bool* k, QWidget *parent)
         break;
     }
     ui->cb->setText(hinsi);
-    ui->imi_line->setText(QString::fromStdString(t.imi));
-    ui->bikou_line->setText(QString::fromStdString(t.bikou));
-    ui->kanji_line->setText(QString::fromStdString(t.kanji));
+    ui->imi_line->setText(QString::fromStdString(t->imi));
+    ui->bikou_line->setText(QString::fromStdString(t->bikou));
+    ui->kanji_line->setText(QString::fromStdString(t->kanji));
     dic = new dic_exec();
-    if(dic->mp3_load(t.kotoba).size() < 5){
+    if(dic->mp3_load(t->kotoba).size() < 5){
         ui->del_file->setEnabled(false);
     }
     delete dic;
-    this->t.kotoba = t.kotoba;
-    this->t.hinsi = t.hinsi;
-    this->b = b;
     this->k = k;
     connect(ui->modify_btn, &QPushButton::clicked, this, &modify_kotoba::_modify);
     connect(ui->file_btn, &QPushButton::clicked, this, &modify_kotoba::file_select);
@@ -102,16 +100,15 @@ modify_kotoba::~modify_kotoba()
 
 void modify_kotoba::_modify(){
     dic = new dic_exec();
-    t.imi = ui->imi_line->toPlainText().toStdString();
-    t.bikou = ui->bikou_line->toPlainText().toStdString();
-    t.kanji = ui->kanji_line->text().toStdString();
+    t->imi = ui->imi_line->toPlainText().toStdString();
+    t->bikou = ui->bikou_line->toPlainText().toStdString();
+    t->kanji = ui->kanji_line->text().toStdString();
     if (file(file_name)){
-        dic->modify_kotoba(t, del_f);
+        dic->modify_kotoba(*t, del_f);
     } else {
-        dic->modify_kotoba(t, mp3);
+        dic->modify_kotoba(*t, mp3);
     }
     delete dic;
-    *b = t;
     *k = true;
 }
 

@@ -233,9 +233,8 @@ void mainQT::_modify(){
     if (n<0){
         return;
     }
-    tuple b;
     bool k = false;
-    modify_ui = new modify_kotoba(list[n], &b, &k);
+    modify_ui = new modify_kotoba(&list[n], &k);
     modify_ui->exec();
     delete modify_ui;
     if (k){
@@ -244,9 +243,9 @@ void mainQT::_modify(){
         cname = "";
         sagasu();
         book = new bookmark();
-        if (book->kaburu_check(b.kotoba)){
-            book->del_bookmark(b.kotoba);
-            book->add_bookmark(b);
+        if (book->kaburu_check(list[n].kotoba)){
+            book->del_bookmark(list[n].kotoba);
+            book->add_bookmark(list[n]);
             delete book;
             load_book();
         } else {
