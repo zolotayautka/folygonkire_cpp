@@ -8,6 +8,18 @@ add_kotoba::add_kotoba(bool* k, QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(QSize(543, 363));
     this->k = k;
+    bool lang_ruikei = load_gengo_ruikei();
+    if (!lang_ruikei){
+        #ifdef ja
+        ui->cb->setItemText(0, "前置詞");
+        #endif
+        #ifdef en
+        ui->cb->setItemText(0, "Preposition");
+        #endif
+        #ifdef ko
+        ui->cb->setItemText(0, "전치사");
+        #endif
+    }
     connect(ui->add_btn, &QPushButton::clicked, this, &add_kotoba::_add);
     connect(ui->file_btn, &QPushButton::clicked, this, &add_kotoba::file_select);
 }

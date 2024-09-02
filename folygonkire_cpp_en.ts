@@ -11,7 +11,7 @@
     <message>
         <location filename="add_kotoba.ui" line="31"/>
         <source>助詞</source>
-        <translation>Preposition</translation>
+        <translation>Postposition</translation>
     </message>
     <message>
         <location filename="add_kotoba.ui" line="36"/>

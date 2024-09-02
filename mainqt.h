@@ -12,6 +12,7 @@
 #include <QMessageBox>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
+#include "new_dic.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class mainQT; }
@@ -45,6 +46,7 @@ private:
     QtCharts::QChart *pi = nullptr;
     QtCharts::QChartView *pi_view = nullptr;
     void Pi();
+    bool lang_ruikei;
 
 private slots:
     void sagasu();

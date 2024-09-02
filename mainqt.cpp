@@ -12,9 +12,15 @@ mainQT::mainQT(QWidget *parent)
 {
     ui->setupUi(this);
     setFixedSize(QSize(821, 561));
+    bool k = true;
     if (!(fileExists("dic.db"))){
-        create_dic();
+        do{
+            new_dic* a = new new_dic(&k);
+            a->exec();
+            delete a;
+        }while(k);
     }
+    lang_ruikei = load_gengo_ruikei();
     connect(ui->sagasu_btn, &QPushButton::clicked, this, &mainQT::sagasu);
     connect(ui->sagasu_list, &QListWidget::clicked, this, &mainQT::imi_out);
     connect(ui->sagasu_list, &QListWidget::currentItemChanged, this, &mainQT::imi_out);
@@ -81,13 +87,22 @@ void mainQT::imi_out(){
     switch(h){
     case 0:
         #ifdef ja
+        if(lang_ruikei)
             hinsi = "[助詞]";
+        else
+            hinsi = "[前置詞]";
         #endif
         #ifdef en
+        if(lang_ruikei)
+            hinsi = "[Postposition]";
+        else
             hinsi = "[Preposition]";
         #endif
         #ifdef ko
+        if(lang_ruikei)
             hinsi = "[조사]";
+        else
+            hinsi = "[전치사]";
         #endif
        break;
     case 1:
@@ -159,18 +174,6 @@ void mainQT::imi_out(){
 
 void mainQT::count_view(){
     dic = new dic_exec;
-    count_p = dic->count_kotoba();
-    count[0] = *count_p;
-    for(int i = 1; i < 7; i++){
-        count_p++;
-        count[i] = *count_p;
-    }
-    delete dic;
-    ui->count_lcd->display(count[0]);
-}
-
-void mainQT::play_mp3(){
-        dic = new dic_exec;
     count_p = dic->count_kotoba();
     count[0] = *count_p;
     for(int i = 1; i < 7; i++){
@@ -342,15 +345,24 @@ void mainQT::book_view(){
     switch(h){
     case 0:
         #ifdef ja
+        if(lang_ruikei)
             hinsi = "[助詞]";
+        else
+            hinsi = "[前置詞]";
         #endif
         #ifdef en
+        if(lang_ruikei)
+            hinsi = "[Postposition]";
+        else
             hinsi = "[Preposition]";
         #endif
         #ifdef ko
+        if(lang_ruikei)
             hinsi = "[조사]";
+        else
+            hinsi = "[전치사]";
         #endif
-       break;
+        break;
     case 1:
         #ifdef ja
             hinsi = "[名詞]";
@@ -482,8 +494,12 @@ void mainQT::Pi(){
     } else {
             hinsipi->clear();
     }
+    std::string a;
     #ifdef ja
-    std::string a = "助詞";
+    if(lang_ruikei)
+        a = "助詞";
+    else
+        a = "前置詞";
     std::string b = "名詞";
     std::string c = "動詞";
     std::string d = "形容詞";
@@ -491,7 +507,10 @@ void mainQT::Pi(){
     std::string f = "その外";
     #endif
     #ifdef en
-    std::string a = "Preposition";
+    if(lang_ruikei)
+        a = "Postposition";
+    else
+        a = "Preposition";
     std::string b = "Noun";
     std::string c = "Verb";
     std::string d = "Adjective";
@@ -499,7 +518,10 @@ void mainQT::Pi(){
     std::string f = "Others";
     #endif
     #ifdef ko
-    std::string a = "조사";
+    if(lang_ruikei)
+        a = "조사";
+    else
+        a = "전치사";
     std::string b = "명사";
     std::string c = "동사";
     std::string d = "형용사";

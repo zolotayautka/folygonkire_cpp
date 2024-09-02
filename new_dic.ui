@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>new_dic</class>
+ <widget class="QDialog" name="new_dic">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>320</width>
+    <height>60</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>新たな辞書</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/imgs/icon.png</normaloff>:/imgs/icon.png</iconset>
+  </property>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>71</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>TTS言語 :</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cb">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>ja</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>ko</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>en-us</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>en-uk</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>ru</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>es-es</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>pt-pt</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>pt-br</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>zh-cn</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>zh-tw</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="btn">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>10</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/imgs/add.png</normaloff>:/imgs/add.png</iconset>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

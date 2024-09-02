@@ -213,3 +213,32 @@ void create_dic(){
     sqlite3_exec(db, sql3, 0, 0, 0);
     sqlite3_close(db);
 }
+
+static int callback(void *data, int argc, char **argv, char **azColName) {
+    std::string* lang = static_cast<std::string*>(data);
+    *lang = argv[0];
+    return 0;
+}
+
+bool load_gengo_ruikei(){
+    sqlite3* db;
+    const char sql[] = "SELECT lang FROM flag;";
+    std::string lang;
+    sqlite3_open("dic.db", &db);
+    sqlite3_exec(db, sql, callback, &lang, 0);
+    sqlite3_close(db);
+    if ((!lang.compare("ja")) || (!lang.compare("ko"))){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void set_gengo_ruikei(std::string lang){
+    sqlite3* db;
+    std::ostringstream sql;
+    sql << "INSERT INTO flag VALUES ('" << lang << "');";
+    sqlite3_open("dic.db", &db);
+    sqlite3_exec(db, sql.str().c_str(), 0, 0, 0);
+    sqlite3_close(db);
+}

@@ -10,16 +10,26 @@ modify_kotoba::modify_kotoba(tuple* t, bool* k, QWidget *parent)
     this->t = t;
     ui->kotoba_line->setText(QString::fromStdString(t->kotoba));
     QString hinsi;
+    bool lang_ruikei = load_gengo_ruikei();
     switch(t->hinsi){
     case 0:
         #ifdef ja
-        hinsi = "[助詞]";
+        if(lang_ruikei)
+            hinsi = "[助詞]";
+        else
+            hinsi = "[前置詞]";
         #endif
         #ifdef en
-        hinsi = "[Preposition]";
+        if(lang_ruikei)
+            hinsi = "[Postposition]";
+        else
+            hinsi = "[Preposition]";
         #endif
         #ifdef ko
-        hinsi = "[조사]";
+        if(lang_ruikei)
+            hinsi = "[조사]";
+        else
+            hinsi = "[전치사]";
         #endif
         break;
     case 1:
