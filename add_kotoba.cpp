@@ -54,7 +54,7 @@ void add_kotoba::_add(){
         cmd << "./gen_tts" << " " << load_lang() << " " << add_dic.kotoba;
         #endif
         #ifdef windows
-        cmd << "./gen_tts" << " " << load_lang() << " " << add_dic.kotoba;
+        cmd << "gen_tts.exe" << " " << load_lang() << " " << add_dic.kotoba;
         #endif
         system(cmd.str().c_str());
     } else {
