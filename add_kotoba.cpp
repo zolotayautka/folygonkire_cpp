@@ -50,7 +50,12 @@ void add_kotoba::_add(){
     if (file(file_name)){
         f = dic->add_kotoba(add_dic);
         std::ostringstream cmd;
+        #ifdef linux
         cmd << "./gen_tts" << " " << load_lang() << " " << add_dic.kotoba;
+        #endif
+        #ifdef windows
+        cmd << "./gen_tts" << " " << load_lang() << " " << add_dic.kotoba;
+        #endif
         system(cmd.str().c_str());
     } else {
         f = dic->add_kotoba(add_dic, mp3);
