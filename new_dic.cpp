@@ -19,7 +19,7 @@ new_dic::~new_dic()
 void new_dic::tukuru(){
     QString lang = ui->cb->currentText();
     create_dic();
-    set_gengo_ruikei(lang.toStdString());
+    set_lang(lang.toStdString());
     *k = false;
     close();
 }

@@ -94,8 +94,8 @@ class bookmark {
 
 void create_dic();
 
-bool load_gengo_ruikei();
+bool koutyakugo();
 
-void set_gengo_ruikei(std::string lang);
+void set_lang(std::string lang);
 
 #endif // FOLYGONKIRE_H

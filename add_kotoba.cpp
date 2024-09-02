@@ -8,8 +8,8 @@ add_kotoba::add_kotoba(bool* k, QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(QSize(543, 363));
     this->k = k;
-    bool lang_ruikei = load_gengo_ruikei();
-    if (!lang_ruikei){
+    bool koutyakugo_f = koutyakugo();
+    if (!koutyakugo_f){
         #ifdef ja
         ui->cb->setItemText(0, "前置詞");
         #endif

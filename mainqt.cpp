@@ -20,7 +20,7 @@ mainQT::mainQT(QWidget *parent)
             delete a;
         }while(k);
     }
-    lang_ruikei = load_gengo_ruikei();
+    koutyakugo_f = koutyakugo();
     connect(ui->sagasu_btn, &QPushButton::clicked, this, &mainQT::sagasu);
     connect(ui->sagasu_list, &QListWidget::clicked, this, &mainQT::imi_out);
     connect(ui->sagasu_list, &QListWidget::currentItemChanged, this, &mainQT::imi_out);
@@ -87,19 +87,19 @@ void mainQT::imi_out(){
     switch(h){
     case 0:
         #ifdef ja
-        if(lang_ruikei)
+        if(koutyakugo_f)
             hinsi = "[助詞]";
         else
             hinsi = "[前置詞]";
         #endif
         #ifdef en
-        if(lang_ruikei)
+        if(koutyakugo_f)
             hinsi = "[Postposition]";
         else
             hinsi = "[Preposition]";
         #endif
         #ifdef ko
-        if(lang_ruikei)
+        if(koutyakugo_f)
             hinsi = "[조사]";
         else
             hinsi = "[전치사]";
@@ -345,19 +345,19 @@ void mainQT::book_view(){
     switch(h){
     case 0:
         #ifdef ja
-        if(lang_ruikei)
+        if(koutyakugo_f)
             hinsi = "[助詞]";
         else
             hinsi = "[前置詞]";
         #endif
         #ifdef en
-        if(lang_ruikei)
+        if(koutyakugo_f)
             hinsi = "[Postposition]";
         else
             hinsi = "[Preposition]";
         #endif
         #ifdef ko
-        if(lang_ruikei)
+        if(koutyakugo_f)
             hinsi = "[조사]";
         else
             hinsi = "[전치사]";
@@ -496,7 +496,7 @@ void mainQT::Pi(){
     }
     std::string a;
     #ifdef ja
-    if(lang_ruikei)
+    if(koutyakugo_f)
         a = "助詞";
     else
         a = "前置詞";
@@ -507,7 +507,7 @@ void mainQT::Pi(){
     std::string f = "その外";
     #endif
     #ifdef en
-    if(lang_ruikei)
+    if(koutyakugo_f)
         a = "Postposition";
     else
         a = "Preposition";
@@ -518,7 +518,7 @@ void mainQT::Pi(){
     std::string f = "Others";
     #endif
     #ifdef ko
-    if(lang_ruikei)
+    if(koutyakugo_f)
         a = "조사";
     else
         a = "전치사";

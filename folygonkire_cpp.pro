@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     mainqt.cpp \
     modify_kotoba.cpp \
+    new_dic.cpp \
     sqlite3.c
 
 HEADERS += \
@@ -21,12 +22,14 @@ HEADERS += \
     folygonkire.h \
     mainqt.h \
     modify_kotoba.h \
+    new_dic.h \
     sqlite3.h
 
 FORMS += \
     add_kotoba.ui \
     mainqt.ui \
-    modify_kotoba.ui
+    modify_kotoba.ui \
+    new_dic.ui
 
 LIBS += -lSDL2 -lSDL2_mixer
 
@@ -46,5 +49,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resource.qrc
 
-DEFINES += ja \
-    linux
+DEFINES += ko \
+    windows

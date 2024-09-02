@@ -220,7 +220,7 @@ static int callback(void *data, int argc, char **argv, char **azColName) {
     return 0;
 }
 
-bool load_gengo_ruikei(){
+bool koutyakugo(){
     sqlite3* db;
     const char sql[] = "SELECT lang FROM flag;";
     std::string lang;
@@ -234,7 +234,7 @@ bool load_gengo_ruikei(){
     }
 }
 
-void set_gengo_ruikei(std::string lang){
+void set_lang(std::string lang){
     sqlite3* db;
     std::ostringstream sql;
     sql << "INSERT INTO flag VALUES ('" << lang << "');";

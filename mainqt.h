@@ -46,7 +46,7 @@ private:
     QtCharts::QChart *pi = nullptr;
     QtCharts::QChartView *pi_view = nullptr;
     void Pi();
-    bool lang_ruikei;
+    bool koutyakugo_f;
 
 private slots:
     void sagasu();
