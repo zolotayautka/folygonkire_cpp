@@ -170,6 +170,18 @@ void mainQT::count_view(){
 }
 
 void mainQT::play_mp3(){
+        dic = new dic_exec;
+    count_p = dic->count_kotoba();
+    count[0] = *count_p;
+    for(int i = 1; i < 7; i++){
+        count_p++;
+        count[i] = *count_p;
+    }
+    delete dic;
+    ui->count_lcd->display(count[0]);
+}
+
+void mainQT::play_mp3(){
     if (!(cname.compare(""))){
         return;
     }
@@ -179,27 +191,27 @@ void mainQT::play_mp3(){
     if (mp3.size() < 4){
         return;
     }
-    std::ofstream tfile("temp.mp3", std::ios::binary);
-    tfile.write(reinterpret_cast<const char*>(mp3.data()), mp3.size());
-    tfile.close();
     if (SDL_Init(SDL_INIT_AUDIO) < 0) {
-        std::cerr << "SDL_Init failed: " << SDL_GetError() << std::endl;
         return;
     }
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
-        std::cerr << "Mix_OpenAudio failed: " << Mix_GetError() << std::endl;
         SDL_Quit();
         return;
     }
-    Mix_Music *music = Mix_LoadMUS("temp.mp3");
+    SDL_RWops* buffer = SDL_RWFromMem(mp3.data(), mp3.size());
+    if (!buffer) {
+        Mix_CloseAudio();
+        Mix_Quit();
+        SDL_Quit();
+        return;
+    }
+    Mix_Music *music = Mix_LoadMUS_RW(buffer, 1);
     if (!music) {
-        std::cerr << "Mix_LoadMUS failed: " << Mix_GetError() << std::endl;
         Mix_CloseAudio();
         SDL_Quit();
         return;
     }
     if (Mix_PlayMusic(music, 1) == -1) {
-        std::cerr << "Mix_PlayMusic failed: " << Mix_GetError() << std::endl;
         Mix_FreeMusic(music);
         Mix_CloseAudio();
         SDL_Quit();
@@ -211,9 +223,6 @@ void mainQT::play_mp3(){
     Mix_FreeMusic(music);
     Mix_CloseAudio();
     SDL_Quit();
-    if (fileExists("temp.mp3")){
-        remove("temp.mp3");
-    }
 }
 
 void mainQT::_add(){
