@@ -220,26 +220,18 @@ static int callback(void *data, int argc, char **argv, char **azColName) {
     return 0;
 }
 
-inline std::string lang_sql(){
+bool koutyakugo(){
     sqlite3* db;
     const char sql[] = "SELECT lang FROM flag;";
     std::string lang;
     sqlite3_open("dic.db", &db);
     sqlite3_exec(db, sql, callback, &lang, 0);
     sqlite3_close(db);
-    return lang;
-}
-
-bool koutyakugo(){
-    if ((!lang_sql().compare("ja")) || (!lang_sql().compare("ko"))){
+    if ((!lang.compare("ja")) || (!lang.compare("ko"))){
         return true;
     } else {
         return false;
     }
-}
-
-std::string load_lang(){
-    return lang_sql();
 }
 
 void set_lang(std::string lang){
