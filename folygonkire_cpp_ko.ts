@@ -83,22 +83,22 @@
         <translation>검색</translation>
     </message>
     <message>
-        <location filename="mainqt.ui" line="111"/>
+        <location filename="mainqt.ui" line="117"/>
         <source>ブックマーク</source>
         <translation>북마크</translation>
     </message>
     <message>
-        <location filename="mainqt.ui" line="200"/>
+        <location filename="mainqt.ui" line="212"/>
         <source>検索記録</source>
         <translation>검색기록</translation>
     </message>
     <message>
-        <location filename="mainqt.ui" line="161"/>
+        <location filename="mainqt.ui" line="173"/>
         <source>統計</source>
         <translation>통계</translation>
     </message>
     <message>
-        <location filename="mainqt.ui" line="173"/>
+        <location filename="mainqt.ui" line="185"/>
         <source>登録された見出し語の数</source>
         <translation>​         ​​등록된 표제어 수</translation>
     </message>
@@ -111,39 +111,102 @@
         <translation>표제어 수정</translation>
     </message>
     <message>
-        <location filename="modify_kotoba.ui" line="26"/>
+        <location filename="modify_kotoba.ui" line="30"/>
         <source>修正</source>
         <translation>수정</translation>
     </message>
     <message>
-        <location filename="modify_kotoba.ui" line="39"/>
+        <location filename="modify_kotoba.ui" line="43"/>
         <source>内容 :</source>
         <translation>내용 :</translation>
     </message>
     <message>
-        <location filename="modify_kotoba.ui" line="75"/>
+        <location filename="modify_kotoba.ui" line="79"/>
         <source>備考 :</source>
         <translation>비고 :</translation>
     </message>
     <message>
-        <location filename="modify_kotoba.ui" line="88"/>
+        <location filename="modify_kotoba.ui" line="92"/>
         <source>音声ファイル :</source>
         <translation>음성 파일 :</translation>
     </message>
     <message>
-        <location filename="modify_kotoba.ui" line="101"/>
+        <location filename="modify_kotoba.ui" line="105"/>
         <source>音声添付</source>
         <translation>음성 첨부</translation>
     </message>
     <message>
-        <location filename="modify_kotoba.ui" line="114"/>
+        <location filename="modify_kotoba.ui" line="118"/>
         <source>漢字</source>
         <translation>한자</translation>
     </message>
     <message>
-        <location filename="modify_kotoba.ui" line="181"/>
+        <location filename="modify_kotoba.ui" line="185"/>
         <source>ファイル削除</source>
         <translation>파일 삭제</translation>
+    </message>
+</context>
+<context>
+    <name>new_dic</name>
+    <message>
+        <location filename="new_dic.ui" line="14"/>
+        <source>新たな辞書</source>
+        <translation>새 사전</translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="36"/>
+        <source>TTS言語 :</source>
+        <translation>TTS 언어 :</translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="50"/>
+        <source>ja</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="55"/>
+        <source>ko</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="60"/>
+        <source>en-us</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="65"/>
+        <source>en-uk</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="70"/>
+        <source>ru</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="75"/>
+        <source>es-es</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="80"/>
+        <source>pt-pt</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="85"/>
+        <source>pt-br</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="90"/>
+        <source>zh-cn</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="new_dic.ui" line="95"/>
+        <source>zh-tw</source>
+        <translation></translation>
     </message>
 </context>
 </TS>
