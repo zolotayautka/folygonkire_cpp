@@ -96,8 +96,6 @@ void create_dic();
 
 bool koutyakugo();
 
-std::string load_lang();
-
 void set_lang(std::string lang);
 
 #endif // FOLYGONKIRE_H
