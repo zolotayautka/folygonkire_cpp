@@ -50,4 +50,4 @@ RESOURCES += \
     resource.qrc
 
 DEFINES += ja \
-    linux
+    ubuntu
