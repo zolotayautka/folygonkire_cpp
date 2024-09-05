@@ -53,7 +53,7 @@ void add_kotoba::_add(){
         f = dic->add_kotoba(add_dic);
         if (gen_tts == nullptr)
             gen_tts = new QProcess();
-        #ifdef linux
+        #ifdef ubuntu
         QString bin = "./gen_tts";
         #endif
         #ifdef appimage
