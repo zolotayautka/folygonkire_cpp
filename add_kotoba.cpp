@@ -59,6 +59,7 @@ void add_kotoba::_add(){
         QStringList arguments;
         arguments << QString::fromStdString(load_lang()) << QString::fromStdString(add_dic.kotoba);
         gen_tts->start(bin, arguments);
+        delete gen_tts;
     } else {
         f = dic->add_kotoba(add_dic, mp3);
     }
