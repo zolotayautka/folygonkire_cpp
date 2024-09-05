@@ -26,6 +26,8 @@ add_kotoba::add_kotoba(bool* k, QWidget *parent) :
 
 add_kotoba::~add_kotoba()
 {
+    if (gen_tts != nullptr)
+        delete gen_tts;
     delete ui;
 }
 
@@ -49,7 +51,8 @@ void add_kotoba::_add(){
     dic = new dic_exec;
     if (file(file_name)){
         f = dic->add_kotoba(add_dic);
-        QProcess *gen_tts = new QProcess();
+        if (gen_tts == nullptr)
+            gen_tts = new QProcess();
         #ifdef linux
         QString bin = "./gen_tts";
         #endif
@@ -59,7 +62,6 @@ void add_kotoba::_add(){
         QStringList arguments;
         arguments << QString::fromStdString(load_lang()) << QString::fromStdString(add_dic.kotoba);
         gen_tts->start(bin, arguments);
-        delete gen_tts;
     } else {
         f = dic->add_kotoba(add_dic, mp3);
     }

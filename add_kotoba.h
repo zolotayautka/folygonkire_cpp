@@ -26,6 +26,7 @@ private:
     QString file_name;
     bool* k;
     bool file(QString file_name);
+    QProcess *gen_tts = nullptr;
 
 private slots:
     void _add();
