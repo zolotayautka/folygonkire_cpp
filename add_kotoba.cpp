@@ -49,6 +49,16 @@ void add_kotoba::_add(){
     dic = new dic_exec;
     if (file(file_name)){
         f = dic->add_kotoba(add_dic);
+        QProcess *gen_tts = new QProcess();
+        #ifdef linux
+        QString bin = "./gen_tts";
+        #endif
+        #ifdef windows
+        QString bin = "gen_tts.exe";
+        #endif
+        QStringList arguments;
+        arguments << QString::fromStdString(load_lang()) << QString::fromStdString(add_dic.kotoba);
+        gen_tts->start(bin, arguments);
     } else {
         f = dic->add_kotoba(add_dic, mp3);
     }

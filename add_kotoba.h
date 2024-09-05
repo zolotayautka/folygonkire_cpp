@@ -5,6 +5,7 @@
 #include "folygonkire.h"
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QProcess>
 
 namespace Ui {
 class add_kotoba;
