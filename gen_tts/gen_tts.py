@@ -2,8 +2,11 @@ import sqlite3
 from gtts import gTTS
 import io
 import sys
+import os
 
 if __name__ == "__main__":
+    if not os.path.exists("dic.db"):
+        os._exit(0)
     conn = sqlite3.connect("dic.db")
     cursor = conn.cursor()
     lang = sys.argv[1]
