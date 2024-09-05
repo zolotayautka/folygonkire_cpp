@@ -56,6 +56,9 @@ void add_kotoba::_add(){
         #ifdef linux
         QString bin = "./gen_tts";
         #endif
+        #ifdef appimage
+        QString bin = "./gen_tts";
+        #endif
         #ifdef windows
         QString bin = "gen_tts.exe";
         #endif

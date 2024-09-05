@@ -22,7 +22,7 @@
 #include <QLocale>
 #include <QTranslator>
 
-#ifdef linux
+#if defined(linux) || defined(appimage)
 int main(int argc, char *argv[])
 #endif
 #ifdef windows
