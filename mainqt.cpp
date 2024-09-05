@@ -250,8 +250,8 @@ void mainQT::play_mp3(){
     Mix_CloseAudio();
     SDL_Quit();
     #ifdef appimage
-    if (fileExists("temp.mp3")){
-        remove("temp.mp3");
+    if (fileExists(".temp.mp3")){
+        remove(".temp.mp3");
     }
     #endif
 }
