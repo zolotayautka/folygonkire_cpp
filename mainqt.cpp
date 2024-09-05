@@ -194,6 +194,7 @@ void mainQT::play_mp3(){
     if (mp3.size() < 4){
         return;
     }
+    #if defined(ubuntu) || defined(windows)
     if (SDL_Init(SDL_INIT_AUDIO) < 0) {
         return;
     }
@@ -214,6 +215,28 @@ void mainQT::play_mp3(){
         SDL_Quit();
         return;
     }
+    #endif
+    #ifdef appimage
+    std::ofstream tfile(".temp.mp3", std::ios::binary);
+    tfile.write(reinterpret_cast<const char*>(mp3.data()), mp3.size());
+    tfile.close();
+    if (SDL_Init(SDL_INIT_AUDIO) < 0) {
+        std::cerr << "SDL_Init failed: " << SDL_GetError() << std::endl;
+        return;
+    }
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+        std::cerr << "Mix_OpenAudio failed: " << Mix_GetError() << std::endl;
+        SDL_Quit();
+        return;
+    }
+    Mix_Music *music = Mix_LoadMUS(".temp.mp3");
+    if (!music) {
+        std::cerr << "Mix_LoadMUS failed: " << Mix_GetError() << std::endl;
+        Mix_CloseAudio();
+        SDL_Quit();
+        return;
+    }
+    #endif
     if (Mix_PlayMusic(music, 1) == -1) {
         Mix_FreeMusic(music);
         Mix_CloseAudio();
@@ -226,6 +249,11 @@ void mainQT::play_mp3(){
     Mix_FreeMusic(music);
     Mix_CloseAudio();
     SDL_Quit();
+    #ifdef appimage
+    if (fileExists("temp.mp3")){
+        remove("temp.mp3");
+    }
+    #endif
 }
 
 void mainQT::_add(){
