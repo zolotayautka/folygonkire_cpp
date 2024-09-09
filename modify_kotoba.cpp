@@ -129,17 +129,14 @@ void modify_kotoba::file_select(){
 }
 
 bool modify_kotoba::file(QString file_name){
-    std::string name = file_name.toStdString();
-    std::ifstream mp3_file(name, std::ios::binary);
-    if (!mp3_file) {
+    QFile file(file_name);
+    if (!file.open(QIODevice::ReadOnly)) {
         return true;
     }
-    mp3_file.seekg(0, std::ios::end);
-    std::streamsize size = mp3_file.tellg();
-    mp3_file.seekg(0, std::ios::beg);
-    mp3.resize(size);
-    mp3_file.read(reinterpret_cast<char*>(mp3.data()), size);
-    mp3_file.close();
+    QByteArray mp3_file = file.readAll();
+    mp3.resize(file.size());
+    std::copy(mp3_file.begin(), mp3_file.end(), mp3.begin());
+    file.close();
     return false;
 }
 
