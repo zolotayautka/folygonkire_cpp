@@ -18,8 +18,7 @@ new_dic::~new_dic()
 
 void new_dic::tukuru(){
     QString lang = ui->cb->currentText();
-    create_dic();
-    set_lang(lang.toStdString());
+    create_dic(lang.toStdString());
     *k = false;
     close();
 }
