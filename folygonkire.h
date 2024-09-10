@@ -92,12 +92,10 @@ class bookmark {
     bool kaburu_check(std::string kotoba);
 };
 
-void create_dic();
+void create_dic(std::string lang);
 
 bool koutyakugo();
 
 std::string load_lang();
-
-void set_lang(std::string lang);
 
 #endif // FOLYGONKIRE_H
