@@ -185,9 +185,9 @@ bool bookmark::kaburu_check(std::string kotoba){
     }
 }
 
-void create_dic(){
+void create_dic(std::string lang){
     sqlite3* db;
-    char sql1[] = "CREATE TABLE dic (\
+    const char sql1[] = "CREATE TABLE dic (\
                 kotoba CHAR(20),\
                 hinsi INT,\
                 imi CHAR(80),\
@@ -196,7 +196,7 @@ void create_dic(){
                 kanji CHAR(20),\
                 PRIMARY KEY(kotoba)\
             );";
-    char sql2[] = "CREATE TABLE bookmark (\
+    const char sql2[] = "CREATE TABLE bookmark (\
                 kotoba CHAR(20),\
                 hinsi INT,\
                 imi CHAR(80),\
@@ -204,13 +204,16 @@ void create_dic(){
                 kanji CHAR(20),\
                 PRIMARY KEY(kotoba)\
             );";
-    char sql3[] = "CREATE TABLE flag (\
+    const char sql3[] = "CREATE TABLE flag (\
                 lang TEXT\
             );";
+    std::ostringstream sql4;
+    sql4 << "INSERT INTO flag VALUES ('" << lang << "');";
     sqlite3_open("dic.db", &db);
     sqlite3_exec(db, sql1, 0, 0, 0);
     sqlite3_exec(db, sql2, 0, 0, 0);
     sqlite3_exec(db, sql3, 0, 0, 0);
+    sqlite3_exec(db, sql4.str().c_str(), 0, 0, 0);
     sqlite3_close(db);
 }
 
@@ -241,13 +244,4 @@ bool koutyakugo(){
 
 std::string load_lang(){
     return return_lang();
-}
-
-void set_lang(std::string lang){
-    sqlite3* db;
-    std::ostringstream sql;
-    sql << "INSERT INTO flag VALUES ('" << lang << "');";
-    sqlite3_open("dic.db", &db);
-    sqlite3_exec(db, sql.str().c_str(), 0, 0, 0);
-    sqlite3_close(db);
 }
