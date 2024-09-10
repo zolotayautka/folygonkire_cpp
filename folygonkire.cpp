@@ -234,8 +234,7 @@ inline std::string return_lang(){
 }
 
 bool koutyakugo(){
-    std::string lang = return_lang();
-    if ((!lang.compare("ja")) || (!lang.compare("ko"))){
+    if ((!return_lang().compare("ja")) || (!return_lang().compare("ko"))){
         return true;
     } else {
         return false;
