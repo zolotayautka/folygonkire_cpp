@@ -48,9 +48,8 @@ void add_kotoba::_add(){
     QString bikou = ui->bikou_line->toPlainText();
     add_dic.bikou = bikou.toStdString();
     bool f;
-    dic = new dic_exec;
     if (file(file_name)){
-        f = dic->add_kotoba(add_dic);
+        f = add_kotoba_(add_dic);
         if (gen_tts == nullptr)
             gen_tts = new QProcess();
         #ifdef ubuntu
@@ -66,7 +65,7 @@ void add_kotoba::_add(){
         arguments << QString::fromStdString(load_lang()) << QString::fromStdString(add_dic.kotoba);
         gen_tts->start(bin, arguments);
     } else {
-        f = dic->add_kotoba(add_dic, mp3);
+        f = add_kotoba_(add_dic, mp3);
     }
     if (!f){
         #ifdef ja
@@ -81,7 +80,6 @@ void add_kotoba::_add(){
     } else {
         *k = true;
     }
-    delete dic;
     file_name = "";
 }
 

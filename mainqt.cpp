@@ -48,11 +48,9 @@ mainQT::~mainQT()
 
 void mainQT::sagasu(){
     ui->sagasu_list->clear();
-    dic = new dic_exec();
     QString qkotoba = ui->kotoba_line->text();
     std::string kotoba = qkotoba.toStdString();
-    list = dic->search(kotoba);
-    delete dic;
+    list = search(kotoba);
     int l = list.size();
     for(int i = 0; i < l; i++){
         if (!(list[i].kanji.compare(list[i].kotoba))){
@@ -166,21 +164,18 @@ void mainQT::imi_out(){
     QString bikou = QString::fromStdString(list[n].bikou);
     ui->naiyou->append(imi);
     ui->naiyou->append(bikou);
-    rireki = new history(list[n].kotoba, list[n].imi);
-    delete rireki;
+    write_history(list[n].kotoba, list[n].imi);
     load_history();
     cname = list[n].kotoba;
 }
 
 void mainQT::count_view(){
-    dic = new dic_exec;
-    count_p = dic->count_kotoba();
+    count_p = count_kotoba();
     count[0] = *count_p;
     for(int i = 1; i < 7; i++){
         count_p++;
         count[i] = *count_p;
     }
-    delete dic;
     ui->count_lcd->display(count[0]);
 }
 
@@ -188,9 +183,7 @@ void mainQT::play_mp3(){
     if (!(cname.compare(""))){
         return;
     }
-    dic = new dic_exec();
-    std::vector<unsigned char> mp3 = dic->mp3_load(cname);
-    delete dic;
+    std::vector<unsigned char> mp3 = mp3_load(cname);
     if (mp3.size() < 4){
         return;
     }
@@ -282,14 +275,10 @@ void mainQT::_modify(){
         ui->naiyou->setText("");
         cname = "";
         sagasu();
-        book = new bookmark();
-        if (book->kaburu_check(list[n].kotoba)){
-            book->del_bookmark(list[n].kotoba);
-            book->add_bookmark(list[n]);
-            delete book;
+        if (kaburu_check_book(list[n].kotoba)){
+            del_bookmark(list[n].kotoba);
+            add_bookmark(list[n]);
             load_book();
-        } else {
-            delete book;
         }
     }
 }
@@ -314,20 +303,14 @@ void mainQT::_del(){
     if (f == QMessageBox::No){
         return;
     }
-    dic = new dic_exec();
-    dic->del_kotoba(list[n].kotoba);
-    delete dic;
+    del_kotoba(list[n].kotoba);
     count_view();
     ui->sagasu_list->clear();
     ui->naiyou->setText("");
     cname = "";
-    book = new bookmark();
-    if (book->kaburu_check(list[n].kotoba)){
-        book->del_bookmark(list[n].kotoba);
-        delete book;
+    if (kaburu_check_book(list[n].kotoba)){
+        del_bookmark(list[n].kotoba);
         load_book();
-    } else {
-        delete book;
     }
     Pi();
     sagasu();
@@ -335,9 +318,7 @@ void mainQT::_del(){
 
 void mainQT::load_book(){
     ui->bookmark_list->clear();
-    book = new bookmark();
-    book_list = book->bookmark_load();
-    delete book;
+    book_list = bookmark_load();
     int count = book_list.size();
     ui->bookmark_count_lcd->display(count);
     for(int i = 0; i < count; i++){
@@ -466,9 +447,7 @@ void mainQT::add_book(){
     new_book.imi = list[n].imi;
     new_book.bikou = list[n].bikou;
     new_book.kanji = list[n].kanji;
-    book = new bookmark();
-    bool f = book->add_bookmark(new_book);
-    delete book;
+    bool f = add_bookmark(new_book);
     load_book();
     if (f){
         #ifdef ja
@@ -490,17 +469,13 @@ void mainQT::del_book(){
     }
     ui->naiyou->setText("");
     cname = "";
-    book = new bookmark();
-    book->del_bookmark(book_list[n].kotoba);
-    delete book;
+    del_bookmark(book_list[n].kotoba);
     load_book();
 }
 
 void mainQT::load_history(){
     ui->history_view->clear();
-    rireki = new history();
-    rireki_list = rireki->read_history();
-    delete rireki;
+    rireki_list = read_history();
     int l = rireki_list.size();
     for(int i = 0; i < l; i++){
         std::string s = rireki_list[i];

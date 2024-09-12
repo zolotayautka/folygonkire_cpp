@@ -29,9 +29,6 @@ public:
 private:
     Ui::mainQT *ui;
     int* count_p;
-    dic_exec* dic;
-    history* rireki;
-    bookmark* book;
     add_kotoba* add_ui;
     modify_kotoba* modify_ui;
     int count[7];

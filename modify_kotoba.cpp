@@ -92,11 +92,9 @@ modify_kotoba::modify_kotoba(tuple* t, bool* k, QWidget *parent)
     ui->imi_line->setText(QString::fromStdString(t->imi));
     ui->bikou_line->setText(QString::fromStdString(t->bikou));
     ui->kanji_line->setText(QString::fromStdString(t->kanji));
-    dic = new dic_exec();
-    if(dic->mp3_load(t->kotoba).size() < 5){
+    if(mp3_load(t->kotoba).size() < 5){
         ui->del_file->setEnabled(false);
     }
-    delete dic;
     this->k = k;
     connect(ui->modify_btn, &QPushButton::clicked, this, &modify_kotoba::_modify);
     connect(ui->file_btn, &QPushButton::clicked, this, &modify_kotoba::file_select);
@@ -109,16 +107,14 @@ modify_kotoba::~modify_kotoba()
 }
 
 void modify_kotoba::_modify(){
-    dic = new dic_exec();
     t->imi = ui->imi_line->toPlainText().toStdString();
     t->bikou = ui->bikou_line->toPlainText().toStdString();
     t->kanji = ui->kanji_line->text().toStdString();
     if (file(file_name)){
-        dic->modify_kotoba(*t, del_f);
+        modify_kotoba_(*t, del_f);
     } else {
-        dic->modify_kotoba(*t, mp3);
+        modify_kotoba_(*t, mp3);
     }
-    delete dic;
     *k = true;
 }
 

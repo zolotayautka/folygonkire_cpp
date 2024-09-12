@@ -21,7 +21,6 @@ public:
 
 private:
     Ui::add_kotoba *ui;
-    dic_exec* dic;
     std::vector<unsigned char> mp3;
     QString file_name;
     bool* k;
