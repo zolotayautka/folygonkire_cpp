@@ -85,7 +85,7 @@ bool kaburu_check(std::string kotoba){
     }
 }
 
-bool add_kotoba(tuple add_dic, std::vector<unsigned char> mp3){
+bool add_kotoba_(tuple add_dic, std::vector<unsigned char> mp3){
     if(kaburu_check(add_dic.kotoba)){
         return false;
     }
@@ -103,7 +103,7 @@ bool add_kotoba(tuple add_dic, std::vector<unsigned char> mp3){
     return true;
 }
 
-bool add_kotoba(tuple add_dic){
+bool add_kotoba_(tuple add_dic){
     if(kaburu_check(add_dic.kotoba)){
         return false;
     }
@@ -116,7 +116,7 @@ bool add_kotoba(tuple add_dic){
     return true;
 }
 
-void modify_kotoba(tuple t, std::vector<unsigned char> mp3){
+void modify_kotoba_(tuple t, std::vector<unsigned char> mp3){
     std::ostringstream sql;
     sql << "UPDATE dic SET imi = '" << t.imi << "', bikou = '" << t.bikou << "', kanji = '" << t.kanji << "', hatsuon = X'";
     int l = mp3.size();
@@ -132,7 +132,7 @@ void modify_kotoba(tuple t, std::vector<unsigned char> mp3){
     sqlite3_close(db);
 }
 
-void modify_kotoba(tuple t, bool flag){
+void modify_kotoba_(tuple t, bool flag){
     std::ostringstream sql;
     if (flag){
         sql << "UPDATE dic SET imi = '" << t.imi << "', bikou = '" << t.bikou << "', kanji = '" << t.kanji << "', hatsuon = " << NULL << " WHERE kotoba='" << t.kotoba << "';";
