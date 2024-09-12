@@ -234,7 +234,6 @@ bool kaburu_check_book(std::string kotoba){
 }
 
 void create_dic(std::string lang){
-    sqlite3* db;
     const char sql1[] = "CREATE TABLE dic (\
                 kotoba CHAR(20),\
                 hinsi INT,\
@@ -257,6 +256,7 @@ void create_dic(std::string lang){
             );";
     std::ostringstream sql4;
     sql4 << "INSERT INTO flag VALUES ('" << lang << "');";
+    sqlite3* db;
     sqlite3_open("dic.db", &db);
     sqlite3_exec(db, sql1, 0, 0, 0);
     sqlite3_exec(db, sql2, 0, 0, 0);
@@ -280,9 +280,9 @@ bool koutyakugo(){
 }
 
 std::string load_lang(){
-    sqlite3* db;
     const char sql[] = "SELECT lang FROM flag;";
     std::string lang;
+    sqlite3* db;
     sqlite3_open("dic.db", &db);
     sqlite3_exec(db, sql, lang_callback, &lang, 0);
     sqlite3_close(db);
