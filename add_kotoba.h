@@ -26,7 +26,6 @@ private:
     bool* k;
     bool file(QString file_name);
     QProcess *gen_tts = nullptr;
-    inline void kanji_re();
 
 private slots:
     void _add();
