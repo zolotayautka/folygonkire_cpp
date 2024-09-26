@@ -10,7 +10,12 @@ modify_kotoba::modify_kotoba(tuple* t, bool* k, QWidget *parent)
     this->t = t;
     ui->kotoba_line->setText(QString::fromStdString(t->kotoba));
     QString hinsi;
-    kanji_re();
+    if(!(!load_lang().compare("ja") || !load_lang().compare("ko") || !load_lang().compare("zh-cn") || !load_lang().compare("zh-tw"))){
+        ui->kanji_line->hide();
+        ui->label_2->hide();
+        ui->imi_line->resize(QSize(471, 121));
+        ui->bikou_line->resize(QSize(471, 111));
+    }
     bool koutyakugo_f = koutyakugo();
     switch(t->hinsi){
     case 0:
@@ -147,14 +152,5 @@ void modify_kotoba::del_f_edit(){
         del_f = false;
         ui->mp3_path->setEnabled(true);
         ui->file_btn->setEnabled(true);
-    }
-}
-
-inline void modify_kotoba::kanji_re(){
-    if(!(!load_lang().compare("ja") || !load_lang().compare("ko") || !load_lang().compare("zh-cn") || !load_lang().compare("zh-tw"))){
-        ui->kanji_line->hide();
-        ui->label_2->hide();
-        ui->imi_line->resize(QSize(471, 121));
-        ui->bikou_line->resize(QSize(471, 111));
     }
 }
