@@ -25,6 +25,7 @@ private:
     bool* k;
     bool del_f = false;
     bool file(QString file_name);
+    inline void kanji_re();
 
 private slots:
     void _modify();
