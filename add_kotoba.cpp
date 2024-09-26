@@ -8,6 +8,7 @@ add_kotoba::add_kotoba(bool* k, QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(QSize(543, 363));
     this->k = k;
+    kanji_re();
     bool koutyakugo_f = koutyakugo();
     if (!koutyakugo_f){
         #ifdef ja
@@ -101,3 +102,11 @@ bool add_kotoba::file(QString file_name){
     return false;
 }
 
+inline void add_kotoba::kanji_re(){
+    if(!(!load_lang().compare("ja") || !load_lang().compare("ko") || !load_lang().compare("zh-cn") || !load_lang().compare("zh-tw"))){
+        ui->kanji_line->hide();
+        ui->label_2->hide();
+        ui->imi_line->resize(QSize(471, 121));
+        ui->bikou_line->resize(QSize(471, 111));
+    }
+}
