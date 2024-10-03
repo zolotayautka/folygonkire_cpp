@@ -6,15 +6,15 @@ modify_kotoba::modify_kotoba(tuple* t, bool* k, QWidget *parent)
     , ui(new Ui::modify_kotoba)
 {
     ui->setupUi(this);
-    setFixedSize(QSize(543, 373));
+    setFixedSize(QSize(502, 372));
     this->t = t;
     ui->kotoba_line->setText(QString::fromStdString(t->kotoba));
     QString hinsi;
     if(!(!load_lang().compare("ja") || !load_lang().compare("ko") || !load_lang().compare("zh-cn") || !load_lang().compare("zh-tw"))){
         ui->kanji_line->hide();
         ui->label_2->hide();
-        ui->imi_line->resize(QSize(471, 121));
-        ui->bikou_line->resize(QSize(471, 111));
+        ui->imi_line->resize(QSize(431, 121));
+        ui->bikou_line->resize(QSize(431, 111));
     }
     bool koutyakugo_f = koutyakugo();
     switch(t->hinsi){

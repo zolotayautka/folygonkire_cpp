@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>543</width>
-    <height>373</height>
+    <width>502</width>
+    <height>372</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
   <widget class="QPushButton" name="modify_btn">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>400</x>
      <y>10</y>
      <width>91</width>
      <height>41</height>
@@ -48,7 +48,7 @@
     <rect>
      <x>120</x>
      <y>310</y>
-     <width>301</width>
+     <width>271</width>
      <height>41</height>
     </rect>
    </property>
@@ -63,7 +63,7 @@
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::Shape::Box</enum>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -95,9 +95,9 @@
   <widget class="QPushButton" name="file_btn">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>400</x>
      <y>310</y>
-     <width>101</width>
+     <width>91</width>
      <height>41</height>
     </rect>
    </property>
@@ -108,7 +108,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>410</x>
      <y>110</y>
      <width>41</width>
      <height>17</height>
@@ -121,7 +121,7 @@
   <widget class="QLineEdit" name="kanji_line">
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>360</x>
      <y>130</y>
      <width>131</width>
      <height>41</height>
@@ -138,7 +138,7 @@
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::Shape::Box</enum>
    </property>
   </widget>
   <widget class="QTextBrowser" name="cb">
@@ -151,7 +151,7 @@
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::Shape::Box</enum>
    </property>
   </widget>
   <widget class="QTextBrowser" name="kotoba_line">
@@ -159,12 +159,12 @@
     <rect>
      <x>140</x>
      <y>10</y>
-     <width>291</width>
+     <width>251</width>
      <height>41</height>
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
+    <enum>QFrame::Shape::NoFrame</enum>
    </property>
   </widget>
   <widget class="QCheckBox" name="del_file">
