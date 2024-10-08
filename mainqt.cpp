@@ -63,6 +63,7 @@ void mainQT::sagasu(){
             ui->sagasu_list->addItem(q);
         }
     }
+    hisf = true;
 }
 
 void mainQT::imi_out(){
@@ -164,9 +165,15 @@ void mainQT::imi_out(){
     QString bikou = QString::fromStdString(list[n].bikou);
     ui->naiyou->append(imi);
     ui->naiyou->append(bikou);
-    write_history(list[n].kotoba, list[n].imi);
-    load_history();
+    static std::string t_kotoba = "";
+    if (t_kotoba.compare(list[n].kotoba) != 0)
+        hisf = true;
+    if (hisf){
+        write_history(list[n].kotoba, list[n].imi);
+        load_history();
+    }
     cname = list[n].kotoba;
+    t_kotoba = list[n].kotoba;
 }
 
 void mainQT::count_view(){
@@ -489,6 +496,7 @@ void mainQT::reset_history(){
         remove("history.txt");
     }
     load_history();
+    hisf = false;
 }
 
 void mainQT::Pi(){

@@ -44,6 +44,7 @@ private:
     QtCharts::QChartView *pi_view = nullptr;
     void Pi();
     bool koutyakugo_f;
+    bool hisf = true;
 
 private slots:
     void sagasu();
