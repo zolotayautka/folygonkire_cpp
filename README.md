@@ -1,5 +1,5 @@
 # Folygonkire C++
-このアプリはC++で作られた辞書です。  
+このアプリはC++とQtで作られた辞書です。  
 
 ![1](https://github.com/user-attachments/assets/87e1cbf9-9211-4fa5-93d9-f138c9d9e589)
 ![2](https://github.com/user-attachments/assets/e5328437-3e21-468c-b138-b625a822c36f)
